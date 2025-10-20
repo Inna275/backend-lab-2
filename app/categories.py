@@ -23,7 +23,6 @@ def get_categories():
 
 @app.delete("/category")
 def delete_category():
-    category_data = request.get_json()
-    category_id = category_data.get("id")
+    category_id = request.args.get("id")
     categories.pop(category_id, None)
     return {"message": "Category deleted"}
